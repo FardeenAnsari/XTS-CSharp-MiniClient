@@ -1,11 +1,11 @@
 # XTS Market Data Client - C# Mini Implementation
 
 ## Overview
-C# implementation of core features from the Python `xts-api-client` package, developed as a placement assignment to demonstrate REST API implementation and code comprehension skills.
+C# implementation of core features from the Python `xts-api-client` package for XTS Market Data API integration.
 
-**Scope:** This is a focused implementation covering the 4 required features, not a complete port of the Python package.
+**Scope:** This is a focused implementation covering 4 core features.
 
-## Assignment Requirements
+## Features
 
 ### 1. Market Data Login
 - REST-based authentication with XTS Market Data API
@@ -39,7 +39,7 @@ C# implementation of core features from the Python `xts-api-client` package, dev
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/FardeenAnsari/XTS-CSharp-MiniClient.git
 cd XTS-CSharp-MiniClient
 ```
 
@@ -67,10 +67,10 @@ dotnet run
 ```
 XTS-CSharp-MiniClient/
 ├── Services/
-│   ├── MarketDataAuthService.cs      # Authentication (Task 1)
-│   ├── MarketDataService.cs          # Equity OHLC (Task 2)
-│   ├── FnoDataService.cs             # F&O OHLC (Task 3)
-│   └── SocketClient.cs               # WebSocket streaming (Task 4)
+│   ├── MarketDataAuthService.cs      # Authentication
+│   ├── MarketDataService.cs          # Equity OHLC
+│   ├── FnoDataService.cs             # F&O OHLC
+│   └── SocketClient.cs               # WebSocket streaming
 ├── Models/
 │   ├── AuthResponse.cs               # Login response structure
 │   ├── OhlcCandle.cs                 # OHLC data model
@@ -78,7 +78,7 @@ XTS-CSharp-MiniClient/
 ├── Data/                             # Generated at runtime (not in git)
 │   ├── OHLC_Equity_*.csv            # Downloaded equity OHLC data
 │   └── OHLC_FNO_*.csv               # Downloaded F&O OHLC data
-├── Program.cs                        # Main entry point - runs all 4 tasks
+├── Program.cs                        # Main entry point
 ├── .env                              # API credentials (not in git)
 ├── .gitignore
 └── README.md
@@ -114,63 +114,47 @@ Python package uses Socket.IO with event codes. This C# implementation uses stan
 ## Dependencies
 
 - **Newtonsoft.Json** (13.0.3): JSON serialization
-- **System.Net.WebSockets**: WebSocket support
+- **DotNetEnv** (3.1.1): Environment variable management from .env file
+- **System.Net.WebSockets**: WebSocket support (built-in)
 
 ## Important Notes
 
 **Security**: Never commit `.env` file or hardcode credentials  
-**Scope**: This is a demo project, not production-ready  
-**Data Files**: CSV/TXT files in `Data/` folder are git-ignored
+**Data Files**: CSV/TXT files in `Data/` folder are git-ignored  
+**Environment**: Ensure proper environment configuration before running
 
-## License
+## Code Statistics
 
-Educational/Assignment purpose only.
+- **Total Lines:** 1,227 lines
+- **Services:** 977 lines
+  - FnoDataService.cs: 406 lines
+  - SocketClient.cs: 240 lines
+  - MarketDataService.cs: 204 lines
+  - MarketDataAuthService.cs: 127 lines
+- **Program:** 135 lines
+- **Models:** 115 lines
+  - OhlcCandle.cs: 65 lines
+  - AuthResponse.cs: 30 lines
+  - ApiResponse.cs: 20 lines
 
-## Running the Demo
+This implementation provides comprehensive functionality with clean, maintainable code.
 
-```bash
-cd XTS-CSharp-MiniClient
-dotnet restore
-dotnet build
-dotnet run
-```
+## Technical Highlights
 
-## Output
-
-The program demonstrates:
-1. Successful authentication with token receipt
-2. OHLC data download for 5 equity stocks
-3. OHLC data download for F&O contracts
-4. WebSocket connection and streaming data reception
-
-## Code Size
-
-- **Total Lines:** ~450 lines (excluding comments)
-- **Services:** ~300 lines
-- **Models:** ~80 lines
-- **Program:** ~70 lines
-
-This is intentionally concise to demonstrate core concepts without unnecessary complexity.
-
-## Interview Talking Points
-
-1. **REST Architecture:** Token-based auth, header injection, JSON parsing
+1. **REST Architecture:** Token-based authentication, header injection, JSON parsing
 2. **Async Programming:** All REST calls use `async/await`
 3. **Data Modeling:** Strong typing with C# classes
-4. **WebSocket:** Persistent connection for streaming
+4. **WebSocket:** Persistent connection for real-time streaming
 5. **Code Organization:** Clean separation of concerns
 
-## Limitations (Acknowledged)
+## Known Limitations
 
-This is a **demonstration client** with known limitations:
-- No instrument discovery (uses hardcoded IDs)
-- Minimal error handling
+- Basic error handling
 - No connection pooling or rate limiting
 - Single-threaded socket client
-- No data persistence
-
-These limitations are acceptable for an assignment demonstrating architectural understanding.
+- WebSocket implementation instead of full Socket.IO protocol
+- Limited to specified date ranges
 
 ## License
 
-Educational/Assignment use only. Based on XTS API by Symphony Fintech Solutions.
+Based on XTS API by Symphony Fintech Solutions.
