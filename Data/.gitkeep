@@ -1,0 +1,2 @@
+# This file ensures the Data directory is tracked by git
+# Data files (*.csv, *.txt, *.json) are ignored via .gitignore

@@ -43,12 +43,12 @@ git clone https://github.com/FardeenAnsari/XTS-CSharp-MiniClient.git
 cd XTS-CSharp-MiniClient
 ```
 
-2. Create `.env` file in project root:
+2. Create `.env` file in project root with your XTS API credentials:
 ```bash
-XTS_API_KEY=your_api_key_here
-XTS_API_SECRET=your_secret_key_here
-XTS_API_SOURCE=WEBAPI
-XTS_API_URL=https://xts.rmoneyindia.co.in:3000
+XTS_API_KEY=<your_api_key>
+XTS_API_SECRET=<your_secret_key>
+XTS_API_SOURCE=<source>
+XTS_API_URL=<api_url>
 ```
 
 3. Set environment variables (on macOS/Linux):
