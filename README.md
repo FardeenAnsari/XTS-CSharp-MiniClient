@@ -32,7 +32,7 @@ C# implementation of core features from the Python `xts-api-client` package, dev
 ## Setup Instructions
 
 ### Prerequisites
-- .NET 6.0 or later
+- .NET 10.0
 - XTS Market Data API credentials
 
 ### Configuration
